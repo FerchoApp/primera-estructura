@@ -1,41 +1,125 @@
 ---
-interface Props {
-	title: string;
-}
-
 const { title } = Astro.props;
+
+const products = [
+	{
+		icon:"",
+		name:"producto 1"
+	},
+	{
+		icon:"",
+		name:"producto 2"
+	},
+	{
+		icon:"",
+		name:"producto 3"
+	}
+]
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<div class="header">
+			<div class="container header_info">
+				contenido de la cabecera
+			</div>
+		</div>
+		<div class="container banner">
+			Banner
+		</div>
+		<nav class="container main_menu">
+			<a href="/">Inicio</a><a href="productos"> Productos</a>
+		</nav>
+		<div class="container lista_productos">
+			{
+				products.map((product) =><div>
+											<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAYtJREFUSEvt1bFLlWEUx/GPRESkZK2FQygF6RTRUCBR1JCrNNVqoC7+H822tQRFcw1RUkNBJLQ4KAWhQg1FJYEOIul74ly43N7rc+9wN5/xfc57vuf83vP+Tp8en74e51cCjOI6ruImjmRBf/EaL/AGi+0KbQeIRPcx3WGHj3APm63xdYDjeImL2ME8nuE9/mSC/ry/hZnsbLnqarwq6kczpA7wAFP4ggnEi9dwCSM4hFV8SPCZCvYc5xCd3CkB1jCEC/iYwW+rri63tP8Vp/NZgD9hC8dKgJ84iSt4tw/gG07lfRQUXYUiJ7DRgNRJ9CuDQsvQOCZkP4nOplTDmbQIaHQQ8bt4XOn7BEtYR4xoSHMek9W3uovDTbIUAb8x2OF41oWFvJHj36mT6ABwIFFxvooSfa48pfHTFLO1BGzjaP4rbcc0bHqu28wZ/7Qyx9slLxrAQtpxN5yVtOvvJUDcd7twHmK204XTXMBYrswwuxtNnhOL6FUupliZDVv/r+PSTu5GotrYngP2AFxlUhnskAJwAAAAAElFTkSuQmCC"/>
+											{product.name}
+										</div>)
+			}
+		</div>
+		<div class="container categoria">
+			Categoria
+		</div>	
+		<div class="container">
+			<slot/>
+		</div>
+		<div class="container footer">
+			Este es el footer
+		</div>
+		
+			
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+	.main_menu{
+		display: flex;
+		background-color: #D8973C;
+		height: 40px;
+		align-items: center;
 	}
-	html {
+	.main_menu a{
+		transition: background 300ms ease-in-out;
+		text-decoration: none;
+		color: white;
+		padding: 0 12px;
+		height: 100%;
+		display: flex;
+	}
+	.main_menu a:hover{
+		background-color: #BD632F;
+	}
+	.header{
+		background:orange;
+	}
+	.header_info{
+		height:80px;
+	}
+	.container{
+		max-width: 1280px;
+		margin:0 auto;
+	}
+	.banner{
+		height: 240px;
+	}
+	.ofertas{
+		height: 240px;
+	}
+	.lista_productos{
+		height: 140px;
+		display: flex;
+		margin-top: 8px;
+	}
+	.lista_productos div{
+		height: 100%;
+		display: flex;
+		max-width: 120px;
+		text-align: center;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid gray;
+		border-radius: 4px;
+		margin-right: 3px;
+	}
+	.categoria{
+		height: 140px;
+	}
+	.footer{
+		height: 80px;
+	}
+	html, .body {
+		margin:0;
+		padding:0;
 		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
 	}
 	code {
 		font-family:
