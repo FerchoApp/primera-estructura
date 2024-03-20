@@ -28,11 +28,11 @@ const products = [
 		<title>{title}</title>
 	</head>
 	<body>
-		<div class="bg-zinc-800">
+		<div class="bg-zinc-800 flex justify-center items-center">
 			<div class="flex items-center">
 				<img src="/public/aliexpress.webp" class="h-16">
 				<div class="relative ">
-					<input placeholder="Buscar..." class="h-9 rounded-full pl-4 outline-none pr-14">
+					<input placeholder="Buscar..." class="h-9 w-[800px] rounded-full pl-4 outline-none pr-14">
 					<div class="bg-zinc-800 inline-block text-white rounded-2xl px-2 py-1 absolute right-1 top-[2px]">
 						<Icon name="mdi:search" class="size-6" />				
 					</div>
@@ -43,10 +43,46 @@ const products = [
 				</div>
 				<div class="flex ml-4">
 					<Icon name="emojione-v1:flag-for-colombia" class=" h-8 w-8" />
+					<p class="text-white text-xs ml-2">ES/ <br> COP</p>
+					<div class="text-white"><Icon name="mdi:keyboard-arrow-down" /></div>
+				</div>
+				<div class="flex ml-4">
+					<Icon name="mdi:account" class="h-8 w-8 text-white" />
+					<div>
+						<p class="text-white text-xs ">Bienvenido</p>
+						<div class="text-white flex">
+							<p class="">Identificate / Registrate</p>		
+							<div><Icon name="mdi:keyboard-arrow-down"></Icon></div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="flex ml-4 ">
+					<Icon name="mdi:shopping-cart-outline" class="h-8 w-8 text-white mt-2" />
+					<div class="text-white">
+						<div class="bg-white border-[1px] rounded-full ">0</div>
+						<p class="text-white text-xs"> Cesta</p>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container banner">
+		<div class="bg-zinc-800 flex justify-center items-center">
+			<div class="bg-zinc-800 flex justify-center items-center text-white border-[1px] rounded-full px-2 py-1 mb-3">
+				<Icon name="mdi:menu" class="mr-1"/>
+				<a class="text-[15px] group relative">Todas las categorias
+					
+					<menu class="hidden group-hover:block w-full top-0 absolute bg-zinc-800 rounded-xl">Todas las categorias 
+						<ul>
+							<li>opcion1</li>
+							<li>opcion2</li>
+							<li>opcion3</li>
+						</ul>
+					</menu>
+				</a>
+				<div class=""><Icon name="mdi:keyboard-arrow-down" /></div>
+			</div>
+		</div>
+			<div class="container banner">
 			Banner
 		</div>
 		<nav class="container main_menu">
